@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Girişi</title>
+  <link rel="icon" type="image/png" href="hospital-icon.png">
+  <link rel="stylesheet" href="assets/css/public.css?v=20260508-uyari">
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <main class="auth-page admin-auth-page">
+    <section class="auth-shell admin-auth-shell">
+      <aside class="auth-info admin-side">
+        <a class="brand" href="index.html"><span class="brand-mark small-mark">+</span><span><strong>Hastane Otomasyon Sistemi</strong><span>Yönetici girişi</span></span></a>
+        <div>
+          <h1>Admin Girişi</h1>
+          <p>Hasta ve doktor kayıtlarını yönetmek için giriş yapınız.</p>
+        </div>
+      </aside>
+
+      <div class="auth-card">
+        <a class="back" href="index.html">← Ana sayfaya dön</a>
+        <h2 class="form-title">Yönetici Girişi</h2>
+        <p class="form-sub">Admin kullanıcı adı ve şifrenizi giriniz.</p>
+        <form method="POST" action="admin_giris.php" id="adminLoginForm" novalidate autocomplete="off">
+          <div class="input-group">
+            <label>Admin Adı</label>
+            <div class="input-wrap"><span>👤</span><input type="text" name="admin_ad" placeholder="Admin kullanıcı adı" required></div>
+          </div>
+          <div class="input-group">
+            <label>Şifre</label>
+            <div class="input-wrap"><span>🔒</span><input type="password" name="sifre" placeholder="Şifreniz" required></div>
+          </div>
+          <button class="btn btn-secondary submit" type="submit">Giriş Yap</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div class="site-toast" id="siteToast" role="alert" aria-live="polite"></div>
+
+  <script>
+    const siteToast = document.getElementById('siteToast');
+    const adminLoginForm = document.getElementById('adminLoginForm');
+
+    function showSiteToast(message, type = 'error') {
+      if (!siteToast) return;
+
+      siteToast.textContent = message;
+      siteToast.className = 'site-toast show ' + type;
+
+      setTimeout(() => {
+        siteToast.className = 'site-toast';
+      }, 3500);
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    const durum = params.get('durum');
+
+    if (durum === 'bos_alan') {
+      showSiteToast('Admin adı ve şifre boş bırakılamaz.', 'error');
+    } else if (durum === 'kullanici_hata') {
+      showSiteToast('Admin kullanıcı adı hatalı.', 'error');
+    } else if (durum === 'sifre_hata') {
+      showSiteToast('Şifre hatalı. Lütfen tekrar deneyiniz.', 'error');
+    } else if (durum === 'oturum_gecersiz') {
+      showSiteToast('Oturum süreniz doldu. Lütfen tekrar giriş yapınız.', 'error');
+    } else if (durum === 'sifre_degisti') {
+      showSiteToast('Şifre değiştiği için tekrar giriş yapmanız gerekiyor.', 'error');
+    }
+
+    if (durum) {
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+
+    if (adminLoginForm) {
+      adminLoginForm.addEventListener('submit', (event) => {
+        const adminAd = adminLoginForm.querySelector('input[name="admin_ad"]');
+        const sifre = adminLoginForm.querySelector('input[name="sifre"]');
+
+        if (!adminAd.value.trim() || !sifre.value.trim()) {
+          event.preventDefault();
+          showSiteToast('Admin adı ve şifre alanlarını doldurunuz.', 'error');
+        }
+      });
+    }
+  </script>
+</body>
+</html>

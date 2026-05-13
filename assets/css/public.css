@@ -1,0 +1,802 @@
+/*
+  Hastane Otomasyon Sistemi - Genel Arayüz Stilleri
+  Ana sayfa, giriş ekranları, hakkında ve iletişim sayfaları için kullanılır.
+*/
+
+:root {
+  --bg: #eef4fb;
+  --bg-soft: #f8fbff;
+  --white: #ffffff;
+  --text: #152238;
+  --muted: #607086;
+  --line: #dbe5f0;
+
+  --blue: #1d5fd1;
+  --blue-dark: #164a9e;
+  --blue-soft: #eef5ff;
+
+  --green: #12946a;
+  --green-dark: #0d7453;
+  --green-soft: #edf9f5;
+
+  --admin: #b45309;
+  --admin-dark: #92400e;
+  --admin-soft: #fff7ed;
+
+  --navy: #20344f;
+  --shadow: 0 18px 45px rgba(33, 55, 85, 0.14);
+  --radius: 22px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background: linear-gradient(135deg, #eef4fb 0%, #f8fbff 45%, #e9f3ff 100%);
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+}
+
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(rgba(31, 82, 137, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(31, 82, 137, 0.055) 1px, transparent 1px);
+  background-size: 42px 42px;
+}
+
+.container,
+main {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+/* Üst menü */
+.nav {
+  width: min(1120px, calc(100% - 32px));
+  margin: 20px auto 0;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 10px 32px rgba(33, 55, 85, 0.09);
+  backdrop-filter: blur(10px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.brand-mark {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--blue), var(--green));
+  color: #fff;
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.small-mark {
+  width: 38px;
+  height: 38px;
+  font-size: 23px;
+}
+
+.brand strong {
+  display: block;
+  font-size: 17px;
+  color: var(--text);
+}
+
+.brand span span {
+  display: block;
+  margin-top: 2px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 700;
+  font-size: 14px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  transition: 0.18s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background: #edf4fd;
+  color: var(--blue-dark);
+}
+
+.nav-links .admin-link {
+  border: 1px solid #ead8c6;
+  background: var(--admin-soft);
+  color: var(--admin-dark);
+}
+
+/* Ana sayfa */
+.hero {
+  padding: 58px 0 46px;
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 34px;
+  align-items: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #e6f0ff;
+  color: var(--blue-dark);
+  font-weight: 800;
+  font-size: 13px;
+  border: 1px solid #d4e4fb;
+}
+
+.hero h1 {
+  margin: 18px 0 16px;
+  font-size: clamp(34px, 5vw, 58px);
+  line-height: 1.08;
+  letter-spacing: -1.8px;
+}
+
+.hero p {
+  margin: 0;
+  max-width: 560px;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.login-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.login-card {
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 28px;
+  border-radius: var(--radius);
+  background: var(--white);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.login-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 55px rgba(33, 55, 85, 0.18);
+}
+
+.patient-card {
+  border-top: 6px solid var(--blue);
+}
+
+.doctor-card {
+  border-top: 6px solid var(--green);
+}
+
+.card-icon {
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  font-size: 32px;
+  background: var(--blue-soft);
+}
+
+.doctor-card .card-icon {
+  background: var(--green-soft);
+}
+
+.login-card h2 {
+  margin: 0 0 10px;
+  font-size: 28px;
+  color: var(--text);
+}
+
+.login-card p {
+  font-size: 16px;
+  line-height: 1.55;
+  margin: 0;
+  color: var(--muted);
+}
+
+.card-button {
+  align-self: flex-start;
+  padding: 13px 18px;
+  border-radius: 14px;
+  color: #fff;
+  font-weight: 800;
+  background: var(--blue);
+}
+
+.doctor-card .card-button {
+  background: var(--green);
+}
+
+.admin-box {
+  grid-column: 2;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-top: 2px;
+  padding: 20px 22px 20px 76px;
+  border: 1px solid #ead8c6;
+  border-top: 6px solid var(--admin);
+  border-radius: 20px;
+  background: var(--white);
+  color: var(--text);
+  box-shadow: 0 14px 34px rgba(33, 55, 85, 0.10);
+}
+
+.admin-box::before {
+  content: "⚙";
+  position: absolute;
+  left: 22px;
+  width: 38px;
+  height: 38px;
+  border-radius: 13px;
+  display: grid;
+  place-items: center;
+  background: var(--admin-soft);
+  border: 1px solid #ead8c6;
+  color: var(--admin);
+  font-size: 20px;
+}
+
+.admin-box span {
+  font-weight: 800;
+  color: var(--text);
+}
+
+.admin-box a {
+  text-decoration: none;
+  font-weight: 900;
+  color: #fff;
+  background: var(--admin);
+  border: 1px solid var(--admin-dark);
+  padding: 12px 18px;
+  border-radius: 13px;
+  box-shadow: 0 10px 22px rgba(180, 83, 9, 0.18);
+  transition: 0.18s ease;
+}
+
+.admin-box a:hover {
+  transform: translateY(-2px);
+  background: var(--admin-dark);
+}
+
+/* Ortak sayfa başlığı */
+.page-hero {
+  padding: 46px 0 24px;
+  text-align: center;
+}
+
+.page-hero h1 {
+  margin: 14px auto 12px;
+  max-width: 780px;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.12;
+  letter-spacing: -1.2px;
+}
+
+.page-hero p {
+  margin: 0 auto;
+  max-width: 760px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+/* Hakkında sayfası */
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  padding: 18px 0 46px;
+}
+
+.about-card,
+.person-card,
+.note-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 14px 36px rgba(33, 55, 85, 0.10);
+}
+
+.about-card {
+  padding: 26px;
+}
+
+.about-card.wide {
+  grid-column: 1 / -1;
+}
+
+.about-card h2 {
+  margin: 0 0 14px;
+  font-size: 24px;
+}
+
+.about-card ul,
+.about-card ol {
+  margin: 0;
+  padding-left: 22px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.about-card li + li {
+  margin-top: 8px;
+}
+
+.role-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.role-item {
+  padding: 18px;
+  border-radius: 18px;
+  background: #f8fbff;
+  border: 1px solid var(--line);
+}
+
+.role-item strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.role-item p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.phase-label {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: var(--green-soft);
+  color: var(--green-dark);
+  border: 1px solid #cdebdc;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+/* İletişim sayfası */
+.team-section {
+  padding: 18px 0 46px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
+
+.person-card {
+  padding: 22px;
+  text-align: center;
+}
+
+.person-photo {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 18px;
+  border-radius: 28px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #eef5ff, #edf9f5);
+  border: 1px dashed #b9c8d9;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.person-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.person-card h2 {
+  margin: 0 0 8px;
+  font-size: 22px;
+}
+
+.person-card .role {
+  margin: 0 0 14px;
+  color: var(--blue-dark);
+  font-weight: 800;
+}
+
+.person-card .bio {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Giriş sayfaları */
+.auth-page {
+  min-height: 100vh;
+  width: min(1020px, calc(100% - 32px));
+  display: grid;
+  place-items: center;
+  padding: 28px 0;
+  margin: 0 auto;
+}
+
+.auth-shell {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  overflow: hidden;
+  border-radius: 26px;
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.auth-info {
+  min-height: 570px;
+  padding: 34px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 28px;
+  background: linear-gradient(135deg, var(--blue-dark), #1b6bd8);
+}
+
+.doctor-side {
+  background: linear-gradient(135deg, var(--green-dark), #17a978);
+}
+
+.admin-side {
+  background: linear-gradient(135deg, #7c3f0b, var(--admin));
+}
+
+.auth-info .brand strong,
+.auth-info .brand span span {
+  color: #fff;
+}
+
+.auth-info .brand span span {
+  opacity: 0.78;
+}
+
+.auth-info .brand-mark {
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+.auth-info h1 {
+  font-size: 42px;
+  letter-spacing: -1px;
+  margin: 0 0 12px;
+}
+
+.auth-info p {
+  margin: 0;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 17px;
+}
+
+.auth-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+
+.auth-list li {
+  padding: 13px 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.auth-card {
+  padding: 38px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.back {
+  display: inline-flex;
+  width: fit-content;
+  margin-bottom: 26px;
+  color: var(--blue-dark);
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.form-title {
+  margin: 0 0 8px;
+  font-size: 32px;
+  letter-spacing: -0.7px;
+}
+
+.form-sub {
+  margin: 0 0 26px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.input-group {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.input-group label,
+label {
+  font-weight: 800;
+  color: #27384e;
+}
+
+.input-wrap {
+  position: relative;
+}
+
+.input-wrap span {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.55;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid #cfdbea;
+  background: #f8fbff;
+  color: var(--text);
+  font: inherit;
+  outline: none;
+}
+
+input,
+select {
+  height: 54px;
+  padding: 0 15px;
+}
+
+textarea {
+  min-height: 132px;
+  padding: 14px 15px;
+  resize: vertical;
+}
+
+.input-wrap input {
+  padding-left: 45px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #78a8e8;
+  box-shadow: 0 0 0 4px rgba(29, 95, 209, 0.10);
+  background: #fff;
+}
+
+.btn {
+  border: 0;
+  border-radius: 14px;
+  padding: 14px 18px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.18s ease;
+}
+
+.btn-primary {
+  background: var(--blue);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--blue-dark);
+}
+
+.btn-secondary {
+  background: var(--admin);
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background: var(--admin-dark);
+}
+
+.submit {
+  width: 100%;
+  height: 54px;
+  margin-top: 8px;
+}
+
+.security-note {
+  margin-top: 16px;
+  padding: 13px 14px;
+  border-radius: 14px;
+  background: #f1f7ff;
+  color: #52657c;
+  border: 1px solid #dbe8f8;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.admin-auth-shell {
+  max-width: 860px;
+  grid-template-columns: 0.8fr 1.2fr;
+}
+
+.admin-auth-page {
+  width: min(900px, calc(100% - 32px));
+}
+
+@media (max-width: 900px) {
+  .nav {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .hero,
+  .about-layout,
+  .auth-shell,
+  .admin-auth-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding-top: 38px;
+  }
+
+  .login-cards,
+  .team-grid,
+  .role-list {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-box {
+    grid-column: 1;
+  }
+
+  .auth-info {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .nav-links {
+    gap: 4px;
+  }
+
+  .nav-links a {
+    padding: 8px 9px;
+    font-size: 13px;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .login-card {
+    min-height: auto;
+    padding: 22px;
+  }
+
+  .admin-box {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .auth-card,
+  .auth-info,
+  .about-card,
+  .person-card {
+    padding: 24px;
+  }
+}
+
+/* Site temalı üst bildirim kutusu */
+.site-toast {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  z-index: 9999;
+  min-width: min(360px, calc(100% - 32px));
+  max-width: 560px;
+  padding: 15px 20px;
+  border-radius: 16px;
+  font-weight: 850;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(-18px);
+  transition: 0.24s ease;
+  box-shadow: 0 18px 45px rgba(33, 55, 85, 0.18);
+}
+
+.site-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.site-toast.error {
+  color: #9f1239;
+  background: #fff1f2;
+  border: 1px solid #fecdd3;
+}
+
+.site-toast.success {
+  color: #065f46;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+}

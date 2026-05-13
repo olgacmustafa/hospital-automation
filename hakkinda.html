@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hakkında | Hastane Otomasyon Sistemi</title>
+  <link rel="icon" type="image/png" href="hospital-icon.png">
+  <link rel="stylesheet" href="assets/css/public.css">
+</head>
+<body>
+  <div class="bg-grid"></div>
+
+  <nav class="nav">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">+</span>
+      <span><strong>Hastane Otomasyon Sistemi</strong><span>Proje hakkında</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Ana Sayfa</a>
+      <a class="active" href="hakkinda.html">Hakkında</a>
+      <a href="iletisim.html">İletişim</a>
+      <a class="admin-link" href="admin.html">Admin Girişi</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="page-hero">
+      <span class="eyebrow">Proje Açıklaması</span>
+      <h1>Hastane Otomasyon Sistemi ne işe yarar?</h1>
+      <p>
+        Bu proje; hasta, doktor ve yönetici işlemlerini aynı sistem altında toplayan web tabanlı bir hastane otomasyonudur.
+        Sistem kayıt yönetimiyle başlayıp randevu, muayene, tanı ve reçete süreçlerini de kapsayacak şekilde geliştirilmiştir.
+      </p>
+    </section>
+
+    <section class="about-layout">
+      <article class="about-card wide">
+        <h2>Sistemin genel amacı</h2>
+        <ul>
+          <li>Hasta, doktor ve yönetici kullanıcılarını ayrı giriş ekranları üzerinden güvenli şekilde sisteme yönlendirmek.</li>
+          <li>Yönetici paneliyle hasta, doktor ve poliklinik kayıtlarının eklenmesini, listelenmesini, düzenlenmesini ve silinmesini sağlamak.</li>
+          <li>Hastaların doktor seçerek tarih ve saat bazlı randevu oluşturabilmesini sağlamak.</li>
+          <li>Doktorların randevularını takip etmesini, muayene başlatmasını, tanı ve reçete bilgisi girmesini sağlamak.</li>
+          <li>Hastaların kendi panelinden randevularını, muayene sonuçlarını, tanılarını ve reçetelerini görüntüleyebilmesini sağlamak.</li>
+        </ul>
+      </article>
+
+      <article class="about-card wide">
+        <h2>Kullanıcı rolleri</h2>
+        <div class="role-list">
+          <div class="role-item">
+            <strong>Hasta</strong>
+            <p>Hasta sisteme TC kimlik numarası ve şifresiyle giriş yapar. Randevu alabilir, randevularını takip edebilir, doktorun girdiği tanı ve reçete bilgilerini okuyabilir. Telefon ve e-posta bilgilerini güncelleyebilir.</p>
+          </div>
+          <div class="role-item">
+            <strong>Doktor</strong>
+            <p>Doktor kendi panelinden randevularını ve hastalarını görür. Muayene kaydı oluşturur, tanı açıklar, reçete yazar ve geçmiş muayene/reçete arşivini takip eder.</p>
+          </div>
+          <div class="role-item">
+            <strong>Yönetici</strong>
+            <p>Yönetici hasta, doktor ve poliklinik kayıtlarını yönetir. Ayrıca kendi admin şifresini sistem üzerinden güvenli şekilde değiştirebilir.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="about-card">
+        <span class="phase-label">Admin panel</span>
+        <h2>Yönetici işlemleri</h2>
+        <ol>
+          <li>Hasta ekleme, listeleme, düzenleme ve silme.</li>
+          <li>Doktor ekleme, listeleme, düzenleme ve silme.</li>
+          <li>Poliklinik ekleme, listeleme, düzenleme ve silme.</li>
+          <li>Hasta ve doktor kayıtlarında TC numarasına göre arama.</li>
+          <li>Şifre değiştirme ve hashli şifre yönetimi.</li>
+        </ol>
+      </article>
+
+      <article class="about-card">
+        <span class="phase-label">Hasta panel</span>
+        <h2>Hasta işlemleri</h2>
+        <ul>
+          <li>Hasta kendi profil bilgilerini görüntüler.</li>
+          <li>Telefon ve e-posta bilgisini güncelleyebilir.</li>
+          <li>Poliklinik, doktor, tarih ve saat seçerek randevu oluşturabilir.</li>
+          <li>Randevu durumunu takip edebilir veya uygun randevuyu iptal edebilir.</li>
+          <li>Doktorun yazdığı tanı, muayene notu, reçete ve ilaç talimatlarını görüntüleyebilir.</li>
+        </ul>
+      </article>
+
+      <article class="about-card">
+        <span class="phase-label">Doktor panel</span>
+        <h2>Doktor işlemleri</h2>
+        <ul>
+          <li>Doktor kendi randevularını listeler.</li>
+          <li>Randevuları onaylayabilir veya iptal edebilir.</li>
+          <li>Kendisine randevu almış hastaları görüntüleyebilir.</li>
+          <li>Muayene başlatıp hastaya tanı ve açıklama girebilir.</li>
+          <li>İlaç seçerek doz ve kullanım talimatıyla reçete oluşturabilir.</li>
+        </ul>
+      </article>
+
+      <article class="about-card wide">
+        <h2>Sistem akışı</h2>
+        <ul>
+          <li>Yönetici önce hasta, doktor ve poliklinik kayıtlarını oluşturur.</li>
+          <li>Hasta kendi hesabıyla giriş yapar ve uygun doktordan randevu talebi oluşturur.</li>
+          <li>Doktor kendi panelinden randevuyu görür, gerekli durumda onaylar veya iptal eder.</li>
+          <li>Muayene sırasında doktor tanı, muayene notu ve reçete bilgisini sisteme kaydeder.</li>
+          <li>Hasta daha sonra kendi panelinden bu tanı ve reçete bilgilerini okuyarak süreç hakkında bilgi sahibi olur.</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

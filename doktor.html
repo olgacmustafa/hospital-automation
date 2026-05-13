@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doktor Girişi</title>
+  <link rel="icon" type="image/png" href="hospital-icon.png">
+  <link rel="stylesheet" href="assets/css/public.css">
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <main class="auth-page">
+    <section class="auth-shell">
+      <aside class="auth-info doctor-side">
+        <a class="brand" href="index.html"><span class="brand-mark">+</span><span><strong>Hastane Otomasyon Sistemi</strong><span>Doktor girişi</span></span></a>
+        <div>
+          <h1>Doktor Girişi</h1>
+          <p>Doktor hesabınız ile sisteme giriş yaparak hasta işlemlerini görüntüleyebilirsiniz.</p>
+        </div>
+        <ul class="auth-list">
+          <li>Hasta bilgilerini görüntüleme alanı.</li>
+          <li>Doktor işlemleri için ayrı giriş ekranı.</li>
+          <li>TC kimlik numarası ve şifre ile giriş yapılır.</li>
+        </ul>
+      </aside>
+
+      <div class="auth-card">
+        <a class="back" href="index.html">← Ana sayfaya dön</a>
+        <h2 class="form-title">Doktor Girişi</h2>
+        <p class="form-sub">Lütfen giriş bilgilerinizi doldurun.</p>
+        <form method="POST" action="doktor_giris.php" class="auth-login-form" data-user-type="Doktor" novalidate autocomplete="off">
+          <div class="input-group">
+            <label>TC Kimlik No</label>
+            <div class="input-wrap"><span>🪪</span><input type="text" name="tc_no" maxlength="11" placeholder="TC kimlik numaranız" required></div>
+          </div>
+          <div class="input-group">
+            <label>Şifre</label>
+            <div class="input-wrap"><span>🔒</span><input type="password" name="sifre" placeholder="Şifreniz" required></div>
+          </div>
+          <button class="btn btn-primary submit" type="submit">Giriş Yap</button>
+        </form>
+        <div class="security-note">Giriş bilgilerinizi doğru yazdığınızdan emin olunuz.</div>
+      </div>
+    </section>
+  </main>
+  <div class="site-toast" id="siteToast" role="alert" aria-live="polite"></div>
+  <script src="assets/js/auth_pages.js?v=20260511-db-final"></script>
+</body>
+</html>

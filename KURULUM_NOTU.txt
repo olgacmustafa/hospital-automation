@@ -1,0 +1,15 @@
+HASTANE OTOMASYONU - KURULUM NOTU
+
+1) database/hospital_schema.sql dosyasını phpMyAdmin üzerinden içe aktar.
+2) ortak/baglanti.example.php dosyasını kopyala ve adını ortak/baglanti.php yap.
+3) ortak/baglanti.php içindeki veritabanı bilgilerini kendi ortamına göre düzenle.
+4) XAMPP kullanıyorsan klasörü htdocs içine koy ve şu adresten aç:
+   http://localhost/hastane-otomasyonu/
+
+Demo giriş bilgileri:
+Admin : admin / 123456
+Hasta : 11111111111 / 123456
+Doktor: 22222222222 / 123456
+
+GitHub notu:
+Gerçek veritabanı şifreni asla GitHub'a yükleme. ortak/baglanti.php .gitignore içindedir.
